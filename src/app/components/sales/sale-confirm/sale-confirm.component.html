@@ -1,0 +1,45 @@
+
+
+<div class="container">
+  <div class="row ">
+    <div class="col">
+      <h1>Confirmação de pedido</h1>
+    </div>
+    <div class="col d-flex justify-content-end">
+    </div>
+  </div>
+  <div class="row my-3">
+    <div class="col">
+      <app-basic-list
+        [colunms]="column"
+        [count]="count"
+        (newOrderEvent)="addItem($event)"
+        [rows]="this.product"
+      ></app-basic-list>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h3>Total: {{total}}</h3>
+    </div>
+    <div class="col d-flex justify-content-end">
+      <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" >Finalizar</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <app-modal-confirm-order></app-modal-confirm-order>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="voltar()" >OK!</button>
+      </div>
+    </div>
+  </div>
+</div>

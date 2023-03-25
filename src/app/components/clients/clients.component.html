@@ -1,0 +1,39 @@
+<div class="container h-100">
+  <div class="row ">
+    <div class="col">
+      <h1>Clientes</h1>
+    </div>
+    <div class="col d-flex justify-content-end">
+      <div class="align-self-center">
+        <button
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          +
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="row my-3" style="height: 85%;">
+    <app-basic-list [colunms]="column" [count]="count"  [rows]="client" > </app-basic-list>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="exampleModal"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <app-modal-create-client (newClientsEvent)="addProduct($event)" ></app-modal-create-client>
+      </div>
+    </div>
+  </div>
+</div>

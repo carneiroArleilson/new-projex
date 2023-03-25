@@ -1,0 +1,54 @@
+<div class="container" style="max-height: 100%;">
+  <div class="row">
+    <div class="col">
+      <h1>Produtos</h1>
+    </div>
+    <div class="col d-flex justify-content-end">
+      <div class="align-self-center">
+        <button
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          +
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="row my-3" style="max-height:75% ;">
+    <div class="col">
+      <app-basic-list
+        [colunms]="column"
+        (newOrderEvent)="addItem($event)"
+        [rows]="product"
+        [count]="count"
+      ></app-basic-list>
+    </div>
+  </div>
+  <div class="row ">
+    <div class="col">
+      <h3 class="mb-0">Total: {{ total }}</h3>
+    </div>
+    <div class="col d-flex justify-content-end">
+      <button class="btn btn-dark " style="padding: 4px 8px;" [ngClass]="{'disabled': !(order.length > 0)}"  (click)="confirm()">Finalizar</button>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="exampleModal"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <app-modal-create-product (newProductEvent)="addProduct($event)"></app-modal-create-product>
+      </div>
+    </div>
+  </div>
+</div>

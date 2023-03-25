@@ -1,0 +1,71 @@
+<div class="row bg-white h-100">
+  <div class="col px-3">
+    <table class="table table-hover table-borderless">
+      <thead class="border-bottom border-dark">
+        <tr>
+          <th scope="col" *ngFor="let colunm of colunms">{{ colunm }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="" *ngFor="let row of rows">
+          <td *ngIf="row.id">
+            {{ row.id }}
+          </td>
+          <td *ngIf="row.name">
+            {{ row.name }}
+          </td>
+          <td *ngIf="row.cpf">
+            {{ row.cpf }}
+          </td>
+          <td *ngIf="row.birth">
+            {{ row.birth | date: "dd/MM/yyyy" }}
+          </td>
+          <td *ngIf="row.clients">
+            {{ row.clients }}
+          </td>
+          <td *ngIf="row.products">
+            {{ row.products }}
+          </td>
+          <td *ngIf="row.email">
+            {{ row.email }}
+          </td>
+          <td *ngIf="row.phone">
+            {{ row.phone }}
+          </td>
+          <td *ngIf="row.price">
+            {{ row.price }}
+          </td>
+          <td *ngIf="row.total">
+            {{ row.total }}
+          </td>
+          <td>
+            <div *ngIf="count == 'clients'">
+              <button
+                class="btn btn-primary btn-sm bi bi-pencil"
+              ></button>
+              <button
+                class="btn btn-primary btn-sm bi bi-trash-fill"
+              ></button>
+            </div>
+            <div *ngIf="count == 'products' || count == 'saleConfirm'">
+              <button
+                class="btn btn-primary btn-sm"
+                *ngIf="!row.selected"
+                (click)="reverse(row.id)"
+              >
+                +
+              </button>
+              <button
+                class="btn btn-danger btn-sm"
+                *ngIf="row.selected"
+                (click)="reverse(row.id)"
+              >
+                x
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

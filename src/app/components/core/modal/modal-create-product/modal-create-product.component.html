@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="modal-header">
+    <h2>Cadastro</h2>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="modal"
+      aria-label="Close"
+    ></button>
+  </div>
+  <div class="row my-3">
+    <label for="Name" class="col-2">Nome: </label>
+    <input type="text" [(ngModel)]="product.name" class="col" id="Name" name="Name" />
+    <div *ngIf="product.name == '' ">sem nome!</div>
+  </div>
+  <div class="row mb-3">
+    <label for="Price" class="col-2">Preço: </label>
+    <input [(ngModel)]="product.price" type="number" class="col" id="Price" name="Price"  placeholder="R$" />
+    <div *ngIf="(product.price || 0) <= 0 " >preço invalido!</div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" [ngClass]="{'disabled': (product.name == '' || (product.price || 0) <= 0 )}"  (click)="incluirProduto()" class="btn btn-primary" data-bs-dismiss="modal">
+      Cadastrar!
+    </button>
+  </div>
+</div>

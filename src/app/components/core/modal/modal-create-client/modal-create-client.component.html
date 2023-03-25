@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="modal-header">
+    <h2>Cadastro</h2>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="modal"
+      aria-label="Close"
+    ></button>
+  </div>
+  <div class="row my-3">
+    <label for="Name" class="col-3">Nome: </label>
+    <input type="text" [(ngModel)]="clients.name" class="col" id="Name" name="Name" />
+    <div *ngIf="clients.name == '' ">sem nome!</div>
+  </div>
+  <div class="row mb-3">
+    <label for="cpf" class="col-3">Cpf: </label>
+    <input [(ngModel)]="clients.cpf" type="text" class="col" id="cpf" name="cpf"  placeholder="000.000.000-00" />
+    <div *ngIf="clients.cpf == '' ">sem cpf!</div>
+     </div>
+  <div class="row mb-3">
+    <label for="birth" class="col-3">nascimento: </label>
+    <input [(ngModel)]="clients.birth" type="date" class="col" id="birth" name="birth" />
+    <!-- <div *ngIf="clients.birth ==  ">sem data de nascimento!</div> -->
+
+  </div>
+  <div class="row mb-3">
+    <label for="email" class="col-3">Email: </label>
+    <input [(ngModel)]="clients.email" type="email" class="col" id="email" name="email"  />
+    <div *ngIf="clients.email == '' ">sem email!</div>
+
+  </div>
+  <div class="row mb-3">
+    <label for="phone" class="col-3">telefone: </label>
+    <input [(ngModel)]="clients.phone" type="text" class="col" id="phone" name="phone"  placeholder="(ddd) 12345-6789" />
+    <div *ngIf="clients.phone == '' ">sem telefone!</div>
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" [ngClass]="{'disabled': (clients.name == '' || clients.cpf == '' || clients.email == '' || clients.phone == '' )}"  (click)="incluirProduto()" class="btn btn-primary" data-bs-dismiss="modal">
+      Cadastrar!
+    </button>
+  </div>
+</div>
